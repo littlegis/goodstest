@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="goodstest"
+  id="myeclipse.1451220518074"
+  context-root="/goodstest"
+  j2ee-spec="6.0"
+  archive="goodstest.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
