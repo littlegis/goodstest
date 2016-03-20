@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>注册</title>
+<title>注册页面</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -33,14 +33,14 @@
 		<div id="divBody">
 			<table id="tableForm">
 				<tr >
-					<td class="tdText">用户名：</td>
+					<td class="tdText">用户名:</td>
 					<td class="tdInput"><input class="inputClass" type="text" name="loginname" id="loginname" />
 					</td>
 					<td class="tdError"><label class="errorClass" id="loginnameError">用户名不能为空！</label>
 					</td>
 				</tr>
 				<tr>
-					<td class="tdText">登录密码：</td>
+					<td class="tdText">登录密码:</td>
 					<td><input class="inputClass" type="password" name="loginpassword" id="loginpassword" />
 					</td>
 					<td><label class="errorClass" id="loginpassError"></label>
@@ -79,8 +79,9 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td> <input id="submitBtn" type="image" src="<c:url value='/jsps/user/regist1.jpg'/>"/></td>
-					<td>r<label></label>
+					<td> <input id="submitBtn" type="image" src="<c:url value='/images/regist1.jpg'/>"/></td>
+					<td>
+					<label></label>
 					</td>
 				</tr>
 			</table>
