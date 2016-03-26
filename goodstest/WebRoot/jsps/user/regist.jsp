@@ -23,8 +23,9 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/css/user/regist.css'/>">
+<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/jsps/js/user/regist.js'/>"></script>
 </head>
-
 <body>
 	<div id="divMain" border="1">
 		<div id="divTitle">
@@ -43,7 +44,7 @@
 					<td class="tdText">登录密码:</td>
 					<td><input class="inputClass" type="password" name="loginpassword" id="loginpassword" />
 					</td>
-					<td><label class="errorClass" id="loginpassError"></label>
+					<td><label class="errorClass" id="loginpasswordError"></label>
 					</td>
 				</tr>
 				<tr>
@@ -73,7 +74,7 @@
 						<img id="imgVerifyCode" src="<c:url value='/VerifyCodeServlet'/>" />
 						</div>
 					</td>
-					<td><label><a href="">换一张</a>
+					<td><label><a href="javascript:_hyz()">换一张</a>
 					</label>
 					</td>
 				</tr>
