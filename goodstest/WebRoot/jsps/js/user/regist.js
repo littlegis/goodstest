@@ -1,6 +1,6 @@
 $(function() {
 	$(".errorClass").each(function() {
- 
+
 		showError($(this));
 	});
 	$("#submitBtn").hover(function() {
@@ -15,13 +15,33 @@ $(function() {
 	});
 	$(".inputClass").blur(
 			function() {
+				debugger;
 				var inputID = $(this).attr("id");
-				 
-				var funcName = "Validate" + inputID.substring(0, 1).toUpperCase()
+
+				var funcName = "Validate"
+						+ inputID.substring(0, 1).toUpperCase()
 						+ inputID.substring(1) + "()";
-			 
+
 				eval(funcName);
 			});
+	$("#registform").submit(function() {
+		var bool = true;
+	 
+		if (!ValidateLoginname()) {
+			bool = false;
+		}
+		if (!ValidateLoginpassword()) {
+			bool = false;
+		}
+		if (!ValidateReloginpass()) {
+			bool = false;
+		}
+		if (ValidateEmail())
+			bool = false;
+		if (ValidateVerifyCode())
+			bool = false;
+		return bool;
+	});
 });
 
 /**
@@ -31,16 +51,17 @@ function ValidateLoginname() {
 	/**
 	 * 非空校验
 	 */
+	debugger;
 	var id = "loginname";
 	var value = $("#" + id).val();
-	 
+
 	if (!value) {
 		/**
 		 * 获取对应的label显示对应的Label
 		 */
 		$("#" + id + "Error").text("用户名不能为空");
 		showError($("#" + id + "Error"));
-	}else if (value.length < 3 || value.length > 8) {
+	} else if (value.length < 3 || value.length > 8) {
 		$("#" + id + "Error").text("用户名长度必须大于3位小于8位!");
 		showError($("#" + id + "Error"));
 	}
@@ -51,14 +72,14 @@ function ValidateLoginname() {
 function ValidateLoginpassword() {
 	var id = "loginpassword";
 	var value = $("#" + id).val();
-	 
+
 	if (!value) {
 		/**
 		 * 获取对应的label显示对应的Label
 		 */
 		$("#" + id + "Error").text("密码不能为空");
 		showError($("#" + id + "Error"));
-	}else if (value.length < 3 || value.length > 8) {
+	} else if (value.length < 3 || value.length > 8) {
 		$("#" + id + "Error").text("密码长度必须大于3位小于8位!");
 		showError($("#" + id + "Error"));
 	}
@@ -69,14 +90,14 @@ function ValidateLoginpassword() {
 function ValidateReloginpass() {
 	var id = "reloginpass";
 	var value = $("#" + id).val();
-	 
+
 	if (!value) {
 		/**
 		 * 获取对应的label显示对应的Label
 		 */
 		$("#" + id + "Error").text("密码不能为空");
 		showError($("#" + id + "Error"));
-	}else if (value!= $("#loginpassword").val()) {
+	} else if (value != $("#loginpassword").val()) {
 		$("#" + id + "Error").text("密码不一致！");
 		showError($("#" + id + "Error"));
 	}
@@ -87,14 +108,15 @@ function ValidateReloginpass() {
 function ValidateEmail() {
 	var id = "email";
 	var value = $("#" + id).val();
-	 
+
 	if (!value) {
 		/**
 		 * 获取对应的label显示对应的Label
 		 */
 		$("#" + id + "Error").text("邮箱不能为空");
 		showError($("#" + id + "Error"));
-	}else if (!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(value)) {
+	} else if (!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
+			.test(value)) {
 		$("#" + id + "Error").text("邮箱格式不对!");
 		showError($("#" + id + "Error"));
 	}
@@ -105,23 +127,24 @@ function ValidateEmail() {
 function ValidateVerifyCode() {
 	var id = "verifyCode";
 	var value = $("#" + id).val();
-	 
+
 	if (!value) {
 		/**
 		 * 获取对应的label显示对应的Label
 		 */
 		$("#" + id + "Error").text("验证码不能为空！");
 		showError($("#" + id + "Error"));
-	}else if (value.length!=4) {
+	} else if (value.length != 4) {
 		$("#" + id + "Error").text("验证码必须为四位!");
 		showError($("#" + id + "Error"));
-}}
+	}
+}
 /**
  * 是否显示有文本的控件
  */
+
 function showError(ele) {
 	var text = ele.text();
-
 	if (!text) {
 		ele.css("display", "none");
 
@@ -129,6 +152,7 @@ function showError(ele) {
 		ele.css("display", "");
 	}
 }
+
 /**
  * 换一张图片
  */

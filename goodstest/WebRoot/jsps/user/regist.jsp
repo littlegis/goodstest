@@ -32,19 +32,21 @@
 			<span id="spanTitle">新用户注册</span>
 		</div>
 		<div id="divBody">
+		<form  action="<c:url value='/UserServlet'/>" method="post"  id="registform">
+		   <input type="hidden" name="method" value="regist"/>
 			<table id="tableForm">
 				<tr >
 					<td class="tdText">用户名:</td>
 					<td class="tdInput"><input class="inputClass" type="text" name="loginname" id="loginname" />
 					</td>
-					<td class="tdError"><label class="errorClass" id="loginnameError">用户名不能为空！</label>
+					<td class="tdError"><label class="errorClass" id="loginnameError"></label>
 					</td>
 				</tr>
 				<tr>
 					<td class="tdText">登录密码:</td>
 					<td><input class="inputClass" type="password" name="loginpassword" id="loginpassword" />
 					</td>
-					<td><label class="errorClass" id="loginpasswordError"></label>
+					<td ><label class="errorClass" id="loginpasswordError"></label>
 					</td>
 				</tr>
 				<tr>
@@ -86,6 +88,7 @@
 					</td>
 				</tr>
 			</table>
+			</form>
 		</div>
 	</div>
 </body>
